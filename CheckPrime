@@ -1,0 +1,47 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CheckPrime {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		        
+				//Generic Welcome Message
+				System.out.println("Prime Number Checker");
+				System.out.println();
+				
+				//Variables
+				Scanner sc = new Scanner(System.in);
+				String choice = "y";
+				int primeNum;
+				
+			    while (choice.equalsIgnoreCase("y")) { 
+			    	
+			    	//Get an int from prime user
+				    primeNum = Console.getNum("Please enter an integer between 1 and 5000: ", sc);
+			    	
+			    	//Checks and stores non prime numbers
+					ArrayList<String> primeList = new ArrayList<String>();
+					for(int i = 1; i<= primeNum/2; i++ ) {
+						if(primeNum % i == 0) {
+							if(!primeList.contains(String.valueOf(i))) {
+								primeList.add(String.valueOf(i));
+							} 
+						}
+					}
+					
+					//Determines whether its prime or not
+			        if(primeList.size()<=2) {
+			        	System.out.println(primeNum + " is a prime number\n");
+			        } else {
+			        	System.out.println(primeNum + " is NOT a prime number\nIt has " + primeList.size() + " factors: "+ primeList.toString() + "\n");
+		            }
+			       
+			        //Ask to try again
+			        choice = Console.getString("Try again?(y/n): ", sc);
+			        System.out.println();
+			    }  
+	}
+
+}
