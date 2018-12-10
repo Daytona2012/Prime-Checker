@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Console {
+	
+	protected Scanner sc = new Scanner(System.in);
+	
+	public static int getNum(String prompt, Scanner sc){
+        int num = 0;
+        boolean isValid=false;
+        
+        while (isValid==false){
+            System.out.print(prompt);
+            num = sc.nextInt();
+            if (num<1||num>5000){
+                System.out.println("Error! Please enter a Number that is between 1 to 5000");
+            } else {
+                isValid=true;
+            }  
+        }
+        return num;  
+    }
+	
+	public static String getString(String prompt, Scanner sc) { 
+    	String s = "";
+    	boolean isValid = false;
+     	while (!isValid) {
+     	  System.out.print(prompt);
+ 		  if (sc.hasNext("y")) {
+ 			s = sc.next();
+ 			isValid = true;
+ 		  } else if (sc.hasNext("n")){
+ 			 System.out.println();
+ 			 System.out.println("Bye!");
+ 			 isValid = true;
+ 		} else {
+ 			System.out.print("Error! Entry must be 'y' or 'n'. Try again. \n");
+ 			
+ 		}
+ 		  
+ 	   }
+ 	  return s; 
+    }
+}
